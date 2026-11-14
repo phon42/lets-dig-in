@@ -1,2 +1,4 @@
-# Let's Dig In
-MadHacks Fall 2026 Submission
+# Burrower
+*MadHacks Fall 2026 Submission*
+
+**Theme: Let's Dig In**
