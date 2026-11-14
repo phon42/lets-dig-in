@@ -1,5 +1,5 @@
 let SOCKET_URL = "localhost:8080";
-let socket = new WebSocket("wss://" + SOCKET_URL);
+let socket = new WebSocket("ws://" + SOCKET_URL);
 
 socket.onopen = function(event) {
     console.log("[OPEN] Connection established.");
