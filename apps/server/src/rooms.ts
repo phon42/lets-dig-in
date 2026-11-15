@@ -1,9 +1,10 @@
 import { ROOM_CODE_LENGTH } from "@burrower/shared";
+import { ROOM_EXPIRY_MS } from "@burrower/shared";
 import { Room } from "./room";
 
 // No 0/O/1/I so codes are easy to read off a TV
 const ROOM_CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-const ROOM_EXPIRY_MS = 60 * 60 * 1000;
+const WAITING_ROOM_EXPIRY_MS = 60 * 1000;
 
 const rooms = new Map<string, Room>();
 
@@ -35,4 +36,4 @@ setInterval(() => {
       rooms.delete(code);
     }
   }
-}, 60_000);
+}, WAITING_ROOM_EXPIRY_MS);

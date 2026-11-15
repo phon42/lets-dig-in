@@ -3,6 +3,7 @@ import type { NoiseLevel, Settings } from "./types";
 export const ROOM_CODE_LENGTH = 4;
 export const MIN_PLAYERS = 2;
 export const TICK_MS = 200;
+export const ROOM_EXPIRY_MS = 60 * 60 * 1000;
 
 export const DEFAULT_SETTINGS: Settings = {
   roundSeconds: 420,

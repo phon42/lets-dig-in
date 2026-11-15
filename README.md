@@ -3,24 +3,24 @@
 
 **Theme: Let's Dig In**
 
-Whack-a-mole where the mole is a player. One player is an attacker tunnelling through a company network toward the crown jewels. Everyone else is the security team, digging through the logs on their phones to find them. Nobody can spot the mole alone, so the game is played out loud.
+Burrower is a whack-a-mole game where the mole is a player. One player is an attacker tunnelling through a company network toward the crown jewels. Everyone else is the security team, digging through the logs on their phones to find them. Nobody can spot the mole alone, so the game is played out loud and cooperation is key.
 
 ## How to play
 
-- **Join**: everyone opens the site on their phone and enters the room code. A TV is optional: open `/tv/CODE` on a big screen for the shared map, the whack reveals and the end-of-round replay.
+- **Join**: Players open the site on their phones and enter the room code. A TV is optional: open `/tv/CODE` on a big screen for the shared map, the whack reveals and the end-of-round replay.
 - **The mole** starts at the `ENTRY` machine and digs between adjacent machines:
-  - 🤫 **Quiet dig** (9s): leaves one faint trace, a login with stolen creds but no matching network connection.
-  - 📢 **Loud dig** (3s): sprays port scans from your machine to all its neighbours.
-  - 💰 **Loot** (10s) a 💎 crown jewel: file copies by a user who never logged in there.
-  - 🎭 **Decoy**: fake a suspicious trace somewhere else.
+  - **Quiet dig** (9s): leaves one faint trace, a login with stolen creds but no matching network connection.
+  - **Loud dig** (3s): sprays port scans from your machine to all its neighbours.
+  - **Loot** (10s) a crown jewel: file copies by a user who never logged in there.
+  - **Decoy**: fake a suspicious trace somewhere else.
   - Loot **3 jewels** before the clock runs out to win.
-- **Defenders** each watch a different log feed: 🔑 logins, 🔌 network, or 📄 files.
+- **Defenders** each watch a different log feed: logins, network, or files.
   - **The rule**: real activity always leaves a matching set across all three feeds (a connection, a login from that source, a file touch by that user). Mole activity leaves a piece missing or wrong.
   - 🔨 **Whack** quarantines a machine. It needs **two defenders** on the same machine, and the team has 5. A miss knocks that machine offline for 30s, which leaves a blind spot.
-  - Each feed comes with a tool. Logins → 🔑 **reset passwords** (knocks the mole back one machine). Network → 🧱 **firewall** (no digging in or out for 25s). Files → 🪤 **bait** (looting it reveals the mole).
-  - 🔍 **Dig in**: see all three feeds for one machine for 10s, while your own feed goes blind.
+  - Each feed comes with a tool. Logins → **reset passwords** (knocks the mole back one machine). Network → **firewall** (no digging in or out for 25s). Files → **bait** (looting it reveals the mole).
+  - **Dig in**: see all three feeds for one machine for 10s, while your own feed goes blind.
   - Defenders win by catching the mole **twice** or running out the clock.
-- 📈 **Traffic spikes** are announced 10s ahead and triple the log noise. That's the moment the mole will want to move.
+- **Traffic spikes** are announced 10s ahead and triple the log noise. That's the moment the mole will want to move.
 
 The mole role rotates every round.
 
