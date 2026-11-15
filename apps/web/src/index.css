@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Lilita One", "Rubik", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-ink: #14213d;
+  --color-ink-2: #22335c;
+  --color-ink-3: #34477a;
+  --color-paper: #f4eedc;
+  --color-paper-2: #e8dcbd;
+  --color-ketchup: #e23d28;
+  --color-ketchup-dark: #b52a18;
+  --color-mustard: #f2b705;
+  --color-mustard-light: #ffd54d;
+  --color-pea: #6baa3a;
+  --color-pea-dark: #4b8226;
+  --color-batter: #e8a33d;
+  --color-sea: #4ea8de;
+  --color-vinegar: #7a4e2d;
+
+  --animate-pop-in: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-wobble: wobble 2.4s ease-in-out infinite;
+  --animate-stamp: stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-sizzle: sizzle 0.6s ease-in-out infinite alternate;
+  --animate-urgent: urgent 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.6) rotate(-6deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes stamp {
+  0% { opacity: 0; transform: scale(2.6) rotate(-18deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-8deg); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sizzle {
+  from { transform: translateY(0) scale(1); opacity: 0.55; }
+  to { transform: translateY(-6px) scale(1.15); opacity: 1; }
+}
+@keyframes urgent {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+@keyframes steam {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  30% { opacity: 0.7; }
+  100% { transform: translateY(-28px) scaleX(1.6); opacity: 0; }
+}
+@keyframes fall {
+  from { transform: translateY(-10vh) rotate(0); }
+  to { transform: translateY(110vh) rotate(720deg); }
+}
+@keyframes shimmer {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}
+
+html, body, #root { min-height: 100%; }
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The host TV scales every rem with the viewport so it fills any 16:9 screen */
+html.host-root { font-size: max(10px, min(1.6vh, 0.9vw)); }
+
+/* Night-time chip shop: navy with a soft neon glow and wave pattern */
+.stage {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(242, 183, 5, 0.22), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 110%, rgba(226, 61, 40, 0.22), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(78, 168, 222, 0.18), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Cpath d='M0 20 Q15 8 30 20 T60 20 T90 20 T120 20' fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='3'/%3E%3C/svg%3E");
+  color: var(--color-paper);
+}
+
+/* Newspaper wrapping: warm paper with a faint halftone */
+.newsprint {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(rgba(20, 33, 61, 0.07) 1px, transparent 1.2px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 40%);
+  background-size: 6px 6px, 100% 100%;
+  color: var(--color-ink);
+}
+
+.gingham {
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, rgba(226, 61, 40, 0.55) 50%, transparent 50%),
+    linear-gradient(rgba(226, 61, 40, 0.55) 50%, transparent 50%);
+  background-size: 16px 16px;
+}
+
+.sticker {
+  border: 3px solid var(--color-ink);
+  border-radius: 1.25rem;
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.sticker-sm {
+  border: 2.5px solid var(--color-ink);
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  border: 3px solid var(--color-ink);
+  border-radius: 1rem;
+  padding: 0.85rem 1.4rem;
+  font-size: 1.25rem;
+  background: var(--color-mustard);
+  color: var(--color-ink);
+  box-shadow: 0 5px 0 var(--color-ink);
+  transition: transform 80ms, box-shadow 80ms, filter 120ms;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:hover:not(:disabled) { filter: brightness(1.06); }
+.btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 var(--color-ink); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-ketchup { background: var(--color-ketchup); color: #fff; }
+.btn-pea { background: var(--color-pea); color: #fff; }
+.btn-paper { background: var(--color-paper); }
+.btn-ink { background: var(--color-ink-2); color: var(--color-paper); }
+
+.display-outline {
+  font-family: var(--font-display);
+  -webkit-text-stroke: 0.06em var(--color-ink);
+  paint-order: stroke fill;
+  text-shadow: 0.06em 0.08em 0 var(--color-ink);
+}
+
+.steam::before,
+.steam::after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: -0.4rem;
+  width: 0.5rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  filter: blur(2px);
+  animation: steam 1.6s ease-out infinite;
+}
+.steam::after { left: 60%; animation-delay: 0.8s; }
+
+.confetti-piece {
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  animation: fall linear infinite;
+  z-index: 50;
+}
+
+.highlight-tell {
+  background: linear-gradient(transparent 55%, rgba(226, 61, 40, 0.35) 55%);
+  border-radius: 2px;
+  box-shadow: 0 2px 0 var(--color-ketchup);
+}
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  .confetti-piece { display: none; }
+}
