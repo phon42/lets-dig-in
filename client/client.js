@@ -8,14 +8,14 @@ socket.onopen = function(event) {
 };
 
 socket.onmessage = function(event) {
-    console.log("[RECEIVE] Message received from server: " + event.data);
+    console.log("[RECEIVE] Message received from server: \"" + event.data + "\"");
 };
 
 socket.onclose = function(event) {
     if (event.wasClean) {
-        console.log("[CLOSE] Connection closed cleanly, code " + event.code + " reason \"" + event.reason + "\".");
+        console.log("[CLOSE] Connection closed cleanly, code \"" + event.code + "\", reason \"" + event.reason + "\".");
     } else {
-        console.log("[CLOSE] Connection closed uncleanly, code " + event.code + " reason \"" + event.reason + "\".");
+        console.log("[CLOSE] Connection closed uncleanly, code \"" + event.code + "\", reason \"" + event.reason + "\".");
     }
 };
 

@@ -1,12 +1,17 @@
 import WebSocket, { WebSocketServer } from "ws";
 
 const wss = new WebSocketServer({port: 8080});
+let clientSocket = undefined;
 
 wss.on("connection", function connection(socket) {
+    clientSocket = socket;
+
     socket.on("message", function message(data) {
         console.log("[RECEIVE] Received: \"" + data + "\"");
         // move this elsewhere/space it out
-        socket.close();
+        setTimeout(function() {
+            close();
+        }, (10 + 1) * 1000);
     });
 
     socket.send("[RECEIVE] Connection received.");
@@ -21,3 +26,22 @@ wss.on("connection", function connection(socket) {
         clearInterval(interval);
     });
 });
+
+function sendMessage(message) {
+    if (clientSocket === undefined) {
+        return -1;
+    }
+
+    clientSocket.send(message);
+
+    return 0;
+}
+function close() {
+    if (clientSocket === undefined) {
+        return -1;
+    }
+
+    clientSocket.close();
+
+    return 0;
+}
