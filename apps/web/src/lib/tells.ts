@@ -34,7 +34,7 @@ const RULES: Rule[] = [
     emoji: "🔑",
     label: "Asks for secrets",
     detail: "Real companies never ask you to hand over passwords, PINs or codes.",
-    re: /\b(password|passcode|pin( number)?|ssn|social security|national insurance|verification code|one[- ]time (code|password|passcode)|otp|security (code|question)|cvv|cvc|card (number|details)|bank details|login details|credentials|sort code|maiden name)\b/gi,
+    re: /\b(password|passcode|pin( number)?|ssn|social security( number)?|national insurance|verification code|one[- ]time (code|password|passcode)|otp|security (code|question)|cvv|cvc|card (number|details)|bank details|routing number|account number|login details|credentials|sort code|maiden name)\b/gi,
   },
   {
     kind: "verify",
@@ -47,7 +47,7 @@ const RULES: Rule[] = [
     kind: "money",
     emoji: "💸",
     label: "Weird payment",
-    detail: "Gift cards, crypto, wire transfers and tiny 'fees' are scammer favourites.",
+    detail: "Gift cards, crypto, wire transfers and tiny 'fees' are scammer favorites.",
     re: /\b(gift ?cards?|itunes|steam card|bitcoin|crypto\w*|wire transfer|western union|processing fee|small fee|customs fee|unpaid fee|redelivery fee|release fee|pay now)\b|[£$€]\s?[0-3]\.\d\d\b/gi,
   },
   {

@@ -119,9 +119,8 @@ function mildTemplates(scenario: Scenario): LureTemplate[] {
   // Wrong ending
   const tldSwaps: Record<string, string[]> = {
     com: ["co", "cm", "com.co", "net"],
-    "co.uk": ["uk.com", "co", "com"],
-    "gov.uk": ["gov-uk.com", "uk.gov.co"],
-    "ac.uk": ["ac-uk.com", "co.uk"],
+    edu: ["edu.co", "edu-portal.com", "college"],
+    gov: ["gov.us.com", "us-gov.com"],
   };
   const swapTld = pick(tldSwaps[tld] ?? ["com", "co"]);
   out.push({

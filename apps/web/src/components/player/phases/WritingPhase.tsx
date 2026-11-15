@@ -34,7 +34,7 @@ export default function WritingPhase({ view, onSubmit }: WritingPhaseProps) {
   const problem = !hasLink
     ? "Add the 🔗 link somewhere in your message"
     : length < MIN_FAKE_LENGTH
-      ? "A little more flavour, please (20+ characters)"
+      ? "A little more flavor, please (20+ characters)"
       : length > MAX_FAKE_LENGTH
         ? `Too long: trim ${length - MAX_FAKE_LENGTH} characters`
         : !lure
